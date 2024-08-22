@@ -7,9 +7,9 @@
 Python version: 3.10+
 
 - Installing virtual env: 
-`pip install virtualenv`
-`cd "project_path"` - Change directory to project's one (right click on downloaded project's folder -> copy as path
-`python -m venv venv`
+	`pip install virtualenv`
+	`cd "project_path"` - Change directory to project's one (right click on downloaded project's folder -> copy as path
+	`python -m venv venv`
   
 
 - Activating:
