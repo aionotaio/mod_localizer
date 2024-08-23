@@ -7,20 +7,12 @@
 
 Python version: 3.10+
 
-<<<<<<< HEAD
 - Installing virtual env:
 ```
 pip install virtualenv
 cd "project_path" // Change directory to project's one (unpack downloaded zip-file, right click on project's folder -> copy as path)
 python -m venv venv
 ```
-=======
-- Installing virtual env: 
-	`pip install virtualenv`
-	`cd "project_path"` - Change directory to project's one (right click on downloaded project's folder -> copy as path
-	`python -m venv venv`
-  
->>>>>>> a73976dd46dc12b46556b2d1226c6f7ec106ab87
 
 - Activating:
 	- Mac/Linux - `source venv/bin/activate`
