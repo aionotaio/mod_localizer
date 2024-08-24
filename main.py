@@ -2,11 +2,11 @@ import json, shutil, jad, os, requests, fake_useragent, logging
 from pathlib import Path
 from config import api_key
 
+
 # Настройка логирования
-file_log = logging.FileHandler('.\logs\logs.txt')
+file_log = logging.FileHandler('.\\logs\\logs.txt')
 console_log = logging.StreamHandler()
 logging.basicConfig(handlers=(file_log, console_log), level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-
 
 # Рандомный юзерагент
 user_agent = fake_useragent.UserAgent().random
@@ -20,7 +20,7 @@ jad.lookforjars(directory)
 mod_list = next(os.walk(directory))[2]
 del mod_list[0]
 if len(mod_list) == 0:
-	logging.info(f"| Mods haven't found in the .\mods folder. Did you forget to add the mods?")
+	logging.info(f"| Mods haven't found in the .\\mods folder. Did you forget to add the mods?")
 else:
 	logging.info(f"| Successfully decompiled {mod_list}")
 
@@ -30,17 +30,17 @@ unloc_mod_list = []
 i = 0
 while i < len(mod_list):
 	try:
-		en_us_path = next(Path(f".\mods\{mod_list[i].split('.jar')[0]}").rglob('en_us.json'))
+		en_us_path = next(Path(f".\\mods\\{mod_list[i].split('.jar')[0]}").rglob('en_us.json'))
 	except StopIteration:
-		logging.error(f"{mod_list[i].split('.jar')[0]} doesn't have a .\lang folder. This mod can't be translated.")
-		shutil.rmtree(f".\mods\{mod_list[i].split('.jar')[0]}")
+		logging.error(f"{mod_list[i].split('.jar')[0]} doesn't have a .\\lang folder. This mod can't be translated.")
+		shutil.rmtree(f".\\mods\\{mod_list[i].split('.jar')[0]}")
 		unloc_mod_list.append(mod_list[i].split('.jar')[0])
 		i += 1
 		continue
 	lang_path = en_us_path.parents[0]
 	d = {}
 	try:
-		next(Path(f".\mods\{mod_list[i].split('.jar')[0]}").rglob('ru_ru.json'))
+		next(Path(f".\\mods\\{mod_list[i].split('.jar')[0]}").rglob('ru_ru.json'))
 	except StopIteration:
 		url = "https://microsoft-translator-text.p.rapidapi.com/translate"
 		params = {
@@ -72,10 +72,10 @@ while i < len(mod_list):
 			logging.info(f"| Successfully created localization file for {mod_list[i].split('.jar')[0]}")
 			
 		# Создает zip-архив из папки
-		shutil.make_archive(f"{mod_list[i].split('.jar')[0]}", 'zip', f".\mods\{mod_list[i].split('.jar')[0]}")
+		shutil.make_archive(f"{mod_list[i].split('.jar')[0]}", 'zip', f".\\mods\\{mod_list[i].split('.jar')[0]}")
 
 		# Удаляет папки
-		shutil.rmtree(f".\mods\{mod_list[i].split('.jar')[0]}")
+		shutil.rmtree(f".\\mods\\{mod_list[i].split('.jar')[0]}")
 
 		# Меняет расширение на .jar 
 		p = Path(f"{mod_list[i].split('.jar')[0]}.zip")
@@ -89,7 +89,7 @@ while i < len(mod_list):
 			logging.info(f"| Successfully compiled {mod_list[i].split('.jar')[0]}")
 			loc_mod_list.append(mod_list[i].split('.jar')[0])
 	else:
-		shutil.rmtree(f".\mods\{mod_list[i].split('.jar')[0]}")
+		shutil.rmtree(f".\\mods\\{mod_list[i].split('.jar')[0]}")
 		logging.warning(f"| Mod {mod_list[i].split('.jar')[0]} already localized")
 		unloc_mod_list.append(mod_list[i].split('.jar')[0])
 		i += 1
