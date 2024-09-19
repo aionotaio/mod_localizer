@@ -1,34 +1,39 @@
-# Minecraft Mods Localizer
+[![works on my machine badge](https://cdn.jsdelivr.net/gh/nikku/works-on-my-machine@v0.4.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
 
-- Localizes mods for Minecraft using free plan of Microsoft Translator Text API on RapidAPI
+# Локализатор для модов Minecraft
 
+## Функционал
+- Автоматически переводит моды с английского на русский, используя бесплатный план Microsoft Translator Text API на RapidAPI
 
-## Run
+## Запуск
 
 Python version: 3.10+
 
-- Installing virtual env:
-```
-pip install virtualenv
-cd "project_path" // Change directory to project's one (unpack downloaded zip-file, right click on project's folder -> copy as path)
-python -m venv venv
-```
+Installing virtual env: \
+`pip install virtualenv` \
+`cd <project_dir>` \
+`python -m venv venv`
 
-- Activating:
-	- Mac/Linux - `source venv/bin/activate`
-	- Windows - `.\venv\Scripts\activate`
 
-- Installing all dependencies:
+Activating: 
+ - Mac/Linux - `source venv/bin/activate` 
+ - Windows - `.\venv\Scripts\activate` 
+
+Installing all dependencies: \
 `pip install -r requirements.txt`
 
-- Run main script:
+Run main script: \
 `python main.py`
+
+## Результаты
+`logs/` - Директория с логами \
+`./` - Родительская директория с переведенными модами
 
 ## FAQ
 
-- Q - Where can i get a new API key if that one in the code expires?
-- A - Go to the https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text, reg on the website and choose Basic plan. It's absolutely free and the only thing you need to do now is to copy your `X-RapidAPI-Key` and paste it in `api_key` in `config.py`
+- Q - Где получить новый `api_key` если тот, который находится в коде закончится?
+- A - https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text -> регистрируешься и выбираешь `Basic plan`. Он полностью бесплатный, не требует ввода платежной информации и тп. Остается только скопировать `X-RapidAPI-Key` и вставить его в поле `api_key` в `config.py`
 
 ## Credits
 
-- I used JadPY utility by Mike Arpaia to decompile `.jar` files in my project, https://github.com/marpaia/jadPY. All rights belongs to him.
+- Я использовал и немного модифицировал модуль JadPY от Mike Arpaia, чтобы декомпилировать `.jar` файлы в моем проекте, https://github.com/marpaia/jadPY. 
